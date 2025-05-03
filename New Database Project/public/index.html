@@ -1,0 +1,77 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js" defer></script>
+  <script src="admin.html" defer></script>
+  <script src="profile.html" defer></script>
+</head>
+
+<form id="userForm">
+  <input name="username" placeholder="Username" required>
+  <input name="info"      placeholder="Info">
+  <input name="classes"   placeholder="Classes (comma-sep)">
+  <button type="submit">Save</button>
+</form>
+
+<ul id="userList"></ul>
+<body>
+  <div id="overlay" class="container">
+    <header>
+      <h1>Planner</h1>
+      <div class="user-header">
+        User <span id="userName"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+      <p> A one in all study planner meant to keep classes, tasks, homework and notes all in one location</p>
+    </header>
+
+    <!-- User's name populated by JS -->
+    <div id="userName" class="user-name"></div>
+
+    <!-- Navigation buttons -->
+    <nav id="icon-nav">
+      <button onclick="location.href='classes.html'">Classes</button>
+      <button onclick="location.href='assignments.html'">Assignments</button>
+      <button onclick="location.href='group-study.html'">Group Study</button>
+      <button onclick="location.href='awards.html'">Awards</button>
+      <button onclick="location.href='settings.html'">Settings</button>
+    </nav>
+
+    <div class="main-content">
+      <canvas id="planner-canvas"></canvas>
+      <div class="progress-container">
+        <div class="canvas-controls">
+            <button id="eraserBtn" class="canvas-btn">Eraser</button>
+            <button id="clearBtn" class="canvas-btn">Clear All</button>
+            <button id="screenshotBtn" class="canvas-btn"> Save Screenshot</button>
+          </div>
+        <div class="progress-bar progress-1"></div>
+        <div class="progress-bar progress-2"></div>
+      </div>
+    </div>
+
+    <table id="calendar">
+        
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </table>
+    </table>
+
+    <footer>
+      &copy; <span id="year"></span> Study Planner
+    </footer>
+  </div>
+</body>
+</html>

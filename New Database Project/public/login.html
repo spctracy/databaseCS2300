@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login – Student Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="login.js" defer>
+    document.getElementById('loginForm').onsubmit = async e => {
+  e.preventDefault();
+  const res = await fetch('/login', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      username: user.value,
+      password: pass.value
+    })
+  });
+  if (!res.ok) return alert('Login failed');
+  const { role } = await res.json();
+  // redirect based on role
+  window.location = role === 'admin'
+    ? 'admin.html'
+    : 'profile.html';
+};
+  </script>
+</head>
+<body>
+  <div class="container login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label>
+        Username<br>
+        <input type="text" id="username" required>
+      </label>
+      <label>
+        Password<br>
+        <input type="password" id="password" required>
+      </label>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+</body>
+</html>

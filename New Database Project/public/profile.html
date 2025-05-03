@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <div id="info"></div>
+  <script>
+    async function load() {
+    const res = await fetch('/api/profile');
+    if (res.status === 401) return location='login.html';
+    const { user, tasks } = await res.json();
+    document.getElementById('info').innerHTML = `
+      <h2>Welcome, ${user.username}</h2>
+      <p>${user.info}</p>
+      <h3>Your Tasks</h3>
+      <ul>${tasks.map(t=>`<li>Task #${t}</li>`).join('')}</ul>
+      <button onclick="fetch('/logout',{method:'POST'}).then(_=>location='login.html')">
+        Logout
+      </button>
+    `;
+}
+load();
+</script>
+</head>
+<body>
+  
+</body>
+</html>
+

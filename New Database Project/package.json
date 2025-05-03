@@ -1,0 +1,32 @@
+{
+    "name": "student-study-planner",
+    "version": "1.0.0",
+    "description": "Web-based student study planner with user authentication, admin dashboard, and canvas drawing features.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "db:init": "node db-init.js",
+      "dev": "nodemon server.js"
+    },
+    "keywords": [
+      "express",
+      "mysql",
+      "planner",
+      "authentication",
+      "canvas"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "express": "^4.18.2",
+      "express-session": "^1.17.3",
+      "mysql2": "^3.1.2"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.20"
+    }
+  }
+  

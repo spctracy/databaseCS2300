@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard</title>
+  <style>
+    table { border-collapse: collapse; width: 100% }
+    th, td { border: 1px solid #ccc; padding: 8px }
+    th { background: #f4f4f4 }
+  </style>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+
+  <h2>All Users</h2>
+  <table id="usersTable">
+    <thead>
+      <tr><th>ID</th><th>Username</th><th>Info</th><th>Created</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>All Tasks</h2>
+  <table id="tasksTable">
+    <thead>
+      <tr><th>Task ID</th><th>User ID</th><th>Username</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <button id="logoutBtn">Logout</button>
+
+  <script>
+    async function loadAdminData() {
+      // Fetch users
+      let res = await fetch('/api/admin/users');
+      if (res.status === 401 || res.status === 403) return location = 'login.html';
+      const users = await res.json();
+      const utBody = document.querySelector('#usersTable tbody');
+      utBody.innerHTML = users.map(u =>
+        `<tr>
+          <td>${u.UserID}</td>
+          <td>${u.username}</td>
+          <td>${u.info}</td>
+          <td>${new Date(u.created).toLocaleString()}</td>
+        </tr>`
+      ).join('');
+
+      // Fetch tasks
+      res = await fetch('/api/admin/tasks');
+      const tasks = await res.json();
+      const ttBody = document.querySelector('#tasksTable tbody');
+      ttBody.innerHTML = tasks.map(t =>
+        `<tr>
+          <td>${t.TaskID}</td>
+          <td>${t.UserID}</td>
+          <td>${t.username}</td>
+        </tr>`
+      ).join('');
+    }
+
+    document.getElementById('logoutBtn').onclick = async () => {
+      await fetch('/logout', { method: 'POST' });
+      location = 'login.html';
+    };
+
+    loadAdminData();
+  </script>
+</body>
+</html>

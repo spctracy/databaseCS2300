@@ -1,0 +1,61 @@
+Basic files were implemented for classes, assignments, group-study, awards and settings
+Ran out of time for the ambitions that I had
+
+Currently running index.html file will open the login.html, any username or password
+will take you to the main page
+
+Currently working is the canvas, which you can draw, and erase, and take a screenshot ones work
+
+Wanted to implement a file system to save the respective screenshots to the classes but ran out of time
+
+## Current Features
+
+ - user authentication
+ -Role-based access
+ -Personal Dashboard
+ -Sections pages
+ -admin dashboard
+ -canvas drawing
+ -live date display
+
+ ## Prerequisites
+- **Node.js** (v16 or later) and **npm**  
+- **MySQL** server (or Docker & Docker Compose)  
+- (Optional) **Docker** for containerized setup  
+
+---
+
+## Installation & Setup
+    Install zip file contain all of the files
+
+## Install Dependenices - IN BASH
+    npm install
+
+Root file created === .env
+
+Database already created using db-init.js
+
+## MYSQL - Importing schemas/updating
+    -**IN BASH**
+    - mysql -u planner_user -p planner_db < sql/schema.sql
+    - mysql -u planner_user -p planner_db < sql/data.sql
+
+## Start
+    'npm start'
+    'npm run dev'
+
+## Access
+    Once the server has started running on local host, should look like
+    ''
+    Go into your browser and enter 'http://localhost:3000/login.html'
+
+    The database is populated with random information, but to access the admin page
+
+    ** Admin Page **
+        login as 'bob'
+        password = '654321'
+        go into dev tools, then open admin.html under public
+
+## Dashboard
+
+    
