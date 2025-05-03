@@ -26,7 +26,8 @@ Wanted to implement a file system to save the respective screenshots to the clas
 ---
 
 ## Installation & Setup
-    Install zip file contain all of the files
+    Install file folders containing all of the files
+    To include New Database Project and below
 
 ## Install Dependenices - IN BASH
     npm install
