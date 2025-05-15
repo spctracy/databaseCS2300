@@ -45,6 +45,11 @@ Database already created using db-init.js
     'npm start'
     'npm run dev'
 
+## Start (if npm is not working properly)
+    once file has been downloaded, locate 'public' folder, go to index file, then open with live server, or show preview, if vscode is being used
+
+    If not, attempt to run node server.js to get it to run the file then log in to the below http address. All steps should be the same to follow
+
 ## Access
     Once the server has started running on local host, should look like
     ''
@@ -58,5 +63,9 @@ Database already created using db-init.js
         go into dev tools, then open admin.html under public
 
 ## Dashboard
+    Admin dashboard does not currently have any features attached to it. If features were implemented, they would have access to student data, such as classes and assignments.
+
+## Finish
+    Once file has actually started running explore the features of it, I currently do not have a lot of the database features currently linked to the planner other than being able to login in under admin as 'bob'
 
     
